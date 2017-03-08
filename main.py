@@ -1,5 +1,8 @@
 from app import *
 
+x = int(input('Cuantas columnas quiere: '))
+y = int(input('Cuantas filas quiere: '))
+
 root = Tk()
 root.title("Apaga las luces")
 
@@ -11,6 +14,6 @@ Grid.columnconfigure(root, 0, weight=1)
 #Ya no se utiliza, se usa solo para poner el grid de tamaño fijo
 #root.geometry("500x300")
 
-app = Application(root)
+app = Application(root, x, y)
 
 root.mainloop()
