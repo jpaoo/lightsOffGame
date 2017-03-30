@@ -11,6 +11,7 @@ class Foco(Button):
 
     def botonPressed(self):
         self.cambiacolor()
+        app.Application.mis_focos[self.num - 2].cambiacolor()
         app.Application.totalOn(app.Application)
 
     def cambiacolor(self):

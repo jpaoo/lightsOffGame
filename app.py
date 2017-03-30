@@ -12,7 +12,6 @@ class Application(Frame):
         self.crear_focos(x, y)
         self.encendidos = 0
 
-
     def crear_focos(self, y, x):
         i = 1
         for columna in range(x):
@@ -25,6 +24,7 @@ class Application(Frame):
                 btn.grid(row=columna, column=fila, sticky=N + S + E + W)
         print("Hay:", len(self.mis_focos), "focos en total")
         self.totalOn()
+        print("Llevas:", self.intentos, "intentos")
 
     def getFocos(self):
         return self.mis_focos
@@ -33,16 +33,15 @@ class Application(Frame):
         return self.intentos
 
     def setIntentos(self, n):
-        self.intentos = n
+        self.intentos = self.intentos + n
 
     def totalOn(self):
         counter = 0
         for i in self.mis_focos:
             if(i.getOn()):
                 counter = counter + 1
-        print("Hay:", counter, "prendidos.")
         self.encendidos = counter
-        self.intentos = self.intentos + 1
+        print("Hay:", self.encendidos, "prendidos.")
 
     def finJuego(self):
         if self.encendidos == 0:
