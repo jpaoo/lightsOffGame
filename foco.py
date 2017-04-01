@@ -46,6 +46,7 @@ class Foco(Button):
         #Verificar cuantos focos quedan encendidos
         app.Application.totalOn(app.Application)
         app.Application.setIntentos(app.Application, 1)
+        app.Application.finJuego(app.Application)
         print("Intentos: ", app.Application.getIntentos(app.Application))
 
     def cambiacolor(self):

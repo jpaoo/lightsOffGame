@@ -28,6 +28,8 @@ Grid.columnconfigure(root, 0, weight=1)
 
 #Ya no se utiliza, se usa solo para poner el grid de tamaño fijo
 #root.geometry("500x300")
+#x = 2
+#y = 2
 
 app = Application(root, x, y, dif, intentos)
 root.mainloop()
