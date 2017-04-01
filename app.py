@@ -4,10 +4,10 @@ class Application(Frame):
 
     mis_focos = []
 
-    def __init__(self, master,x ,y):
+    def __init__(self, master, x, y):
         #super se utiliza para obtener los metodos del padre, en este caso el frame
-        self.intentos = 0
         super(Application, self).__init__()
+        self.intentos = 0
         self.master = master
         self.crear_focos(x, y)
         self.encendidos = 0

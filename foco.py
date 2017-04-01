@@ -27,6 +27,24 @@ class Foco(Button):
             if(app.Application.mis_focos[self.num - 1].getFil() == app.Application.mis_focos[self.num].getFil()):
                 app.Application.mis_focos[self.num].cambiacolor()
 
+        #Se va a calcular el numeo de columnas para poder encender/apagar los focos de forma vertical
+        lenCols = len(app.Application.mis_focos)
+        print("Columnas: ", app.Application.mis_focos[self.num-self.num+lenCols-1].getCol())
+        #numCols es la cantidad de columnas totales que tiene el juego, por lo que es lo que se va a incrementar/decrementar para encender/apagar de forma vertical
+        numCols = app.Application.mis_focos[self.num-self.num+lenCols-1].getCol()
+        numFils = app.Application.mis_focos[self.num - self.num + lenCols - 1].getFil()
+        print("Filas: ", numFils)
+
+        #Encender/Apagar el foco de arriba, verificando que si existe primero
+        if(app.Application.mis_focos[self.num - numCols-2].getFil() != numFils and app.Application.mis_focos[self.num-1] != numCols):
+            if(app.Application.mis_focos[self.num - numCols-2].getCol() <= numCols and app.Application.mis_focos[self.num-1].getFil() >= 0):
+                app.Application.mis_focos[self.num - numCols-2].cambiacolor()
+
+        #Encender/Apagar el foco de abajo, verificando este exista
+        if(app.Application.mis_focos[self.num-1].getFil() <= numFils - 1):
+            if (app.Application.mis_focos[self.num + numCols].getCol() <= numCols):
+                app.Application.mis_focos[self.num + numCols].cambiacolor()
+
         #Verificar cuantos focos quedan encendidos
         app.Application.totalOn(app.Application)
 
