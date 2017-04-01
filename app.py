@@ -1,16 +1,19 @@
 from foco import *
+import random
 
 class Application(Frame):
 
     mis_focos = []
+    intentos = 0
 
-    def __init__(self, master, x, y):
+    def __init__(self, master, x, y, dif, intent):
         #super se utiliza para obtener los metodos del padre, en este caso el frame
         super(Application, self).__init__()
-        self.intentos = 0
+        self.intentos = intent
         self.master = master
-        self.crear_focos(x, y)
         self.encendidos = 0
+        self.dificultad = dif
+        self.crear_focos(x, y)
 
     def crear_focos(self, y, x):
         i = 1
@@ -21,9 +24,18 @@ class Application(Frame):
                 btn = Foco(i)
                 btn.setCol(fila)
                 btn.setFil(columna)
+                #Enciende el foco de manera aleatoria segun el nivel de dificultad
+                rand = random.randrange(0, 100)
+                if self.dificultad == 1 and rand <= 10:
+                    btn.cambiacolor()
+                elif self.dificultad == 2 and rand > 10 and rand <= 30:
+                    btn.cambiacolor()
+                elif self.dificultad == 3 and rand > 30 and rand <= 80:
+                    btn.cambiacolor()
                 i = i + 1
                 self.mis_focos.append(btn)
                 btn.grid(row=columna, column=fila, sticky=N + S + E + W)
+
         print("Hay:", len(self.mis_focos), "focos en total")
         self.totalOn()
         print("Llevas:", self.intentos, "intentos")
