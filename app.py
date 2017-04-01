@@ -19,6 +19,8 @@ class Application(Frame):
             for fila in range(y):
                 Grid.columnconfigure(self, fila, weight=1)
                 btn = Foco(i)
+                btn.setCol(fila)
+                btn.setFil(columna)
                 i = i + 1
                 self.mis_focos.append(btn)
                 btn.grid(row=columna, column=fila, sticky=N + S + E + W)
