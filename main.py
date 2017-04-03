@@ -1,14 +1,14 @@
 from app import *
 
 x = 0
-while x < 5:
+while x < 2:
     x = int(input('Cuantas columnas quiere: '))
-    if x < 5:
-        print("El minimo de columnas es de 5")
+    if x < 2:
+        print("El minimo de columnas es de 2")
 y = 0
-while y < 5:
+while y < 2:
     y = int(input('Cuantas filas quiere: '))
-    if y < 5:
+    if y < 2:
         print("El minimo tamaño para las filas es de 5")
 
 dif = 0

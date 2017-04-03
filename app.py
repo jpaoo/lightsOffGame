@@ -60,4 +60,5 @@ class Application(Frame):
     def finJuego(self):
         if self.encendidos == 0:
             print("Ganaste! Te tomo:", self.intentos, "intentos.")
+            quit()
 
