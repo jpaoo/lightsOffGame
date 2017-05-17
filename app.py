@@ -26,11 +26,11 @@ class Application(Frame):
                 btn.setFil(columna)
                 #Enciende el foco de manera aleatoria segun el nivel de dificultad
                 rand = random.randrange(0, 100)
-                if self.dificultad == 1 and rand <= 10:
+                if self.dificultad == 1 and rand <= 10 or i == 2:
                     btn.cambiacolor()
-                elif self.dificultad == 2 and rand > 10 and rand <= 30:
+                elif self.dificultad == 2 and rand <= 30 or i == 2:
                     btn.cambiacolor()
-                elif self.dificultad == 3 and rand > 30 and rand <= 80:
+                elif self.dificultad == 3 and rand <= 50 or i == 2:
                     btn.cambiacolor()
                 i = i + 1
                 self.mis_focos.append(btn)
@@ -60,5 +60,14 @@ class Application(Frame):
     def finJuego(self):
         if self.encendidos == 0:
             print("Ganaste! Te tomo:", self.intentos, "intentos.")
+            cantFocos = len(self.mis_focos)
+            totalIntentos = self.intentos
+
+            if totalIntentos <= cantFocos/2:
+                print("Eres todo un experto! Intenta jugar con más focos.")
+            elif totalIntentos < cantFocos:
+                print("Tu nivel es avanzado, te falta poco para ser un maestro!")
+            else:
+                print("Eres un novato, sigue practicando")
             quit()
 
